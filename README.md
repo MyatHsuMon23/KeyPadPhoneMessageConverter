@@ -3,9 +3,9 @@ This is a small project that simulates messaging using an old-style keypad phone
 The project replicates the experience of typing text messages on traditional mobile phones, where each numeric key is associated with multiple letters.
 
 # Features
-.Simulates multi-tap input from old-style phone keypads.
-.Supports character selection using numeric key presses.
-.Helps users understand the mechanics of old-style texting.
+1) Simulates multi-tap input from old-style phone keypads.
+2) Supports character selection using numeric key presses.
+3) Helps users understand the mechanics of old-style texting.
 
 # How it works
 Key Mapping: Each numeric key (0–9) corresponds to multiple characters. 
