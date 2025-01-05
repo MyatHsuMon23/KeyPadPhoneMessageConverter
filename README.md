@@ -11,9 +11,9 @@ The project replicates the experience of typing text messages on traditional mob
 Key Mapping: Each numeric key (0–9) corresponds to multiple characters. 
 For example:
 
-2 → A, B, C, 2
-3 → D, E, F, 3
-7 → P, Q, R, S, 7, and so on.
+=> 2 → A, B, C
+=> 3 → D, E, F
+=> 7 → P, Q, R, S
 
 Character Selection: Press the same key multiple times to cycle through the associated characters. 
 For instance:
