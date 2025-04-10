@@ -10,42 +10,43 @@ namespace KeyPadPhoneMessaging
         }
         public static string ConvertToLetter(string inputData)
         {
-            string inputSequence = HandleAsterisk(inputData);
+            string inputSequence = HandleAsteriskCharacter(inputData);
             var keypad = new Dictionary<char, string>
             {
-                { '1', "&'(" },
-                { '2', "abc" },
-                { '3', "def" },
-                { '4', "ghi" },
-                { '5', "jkl" },
-                { '6', "mno" },
-                { '7', "pqrs" },
-                { '8', "tuv" },
-                { '9', "wxyz" },
-                { '0', " " }
+
+                {'0', " "},
+                {'1', "&'("},
+                {'2', "abc"},
+                {'3', "def"},
+                {'4', "ghi"},
+                {'5', "jkl"},
+                {'6', "mno"},
+                {'7', "pqrs"},
+                {'8', "tuv"},
+                {'9', "wxyz"}
             };
 
             List<char> result = new List<char>();
             char? currentDigit = null;
             int count = 0;
 
-            foreach (char ch in inputSequence)
+            foreach (char letter in inputSequence)
             {
-                if (char.IsDigit(ch))
+                if (char.IsDigit(letter))
                 {
-                    if (currentDigit.HasValue && ch != currentDigit.Value)
+                    if (currentDigit.HasValue && letter != currentDigit.Value)
                     {
                         result.Add(keypad[currentDigit.Value][(count - 1) % keypad[currentDigit.Value].Length]);
-                        currentDigit = ch;
+                        currentDigit = letter;
                         count = 1;
                     }
                     else
                     {
-                        currentDigit = ch;
+                        currentDigit = letter;
                         count++;
                     }
                 }
-                else if (ch == '*')
+                else if (letter == '*')
                 {
                     if (result.Count > 0)
                     {
@@ -54,7 +55,7 @@ namespace KeyPadPhoneMessaging
                     currentDigit = null;
                     count = 0;
                 }
-                else if (ch == ' ')
+                else if (letter == ' ')
                 {
                     if (currentDigit.HasValue)
                     {
@@ -63,7 +64,7 @@ namespace KeyPadPhoneMessaging
                         count = 0;
                     }
                 }
-                else if (ch == '#')
+                else if (letter == '#')
                 {
                     if (currentDigit.HasValue)
                     {
@@ -84,18 +85,18 @@ namespace KeyPadPhoneMessaging
             return new string(result.ToArray()).ToUpper();
         }
 
-        public static string HandleAsterisk(string input)
+        public static string HandleAsteriskCharacter(string input)
         {
             StringBuilder result = new StringBuilder();
 
-            foreach (char c in input)
+            foreach (char letter in input)
             {
-                if (c == '*')
+                if (letter == '*')
                 {
                     if (result.Length > 0)
                     {
-                        char lastChar = result[result.Length - 1];
-                        while (result.Length > 0 && result[result.Length - 1] == lastChar)
+                        char lastLetter = result[result.Length - 1];
+                        while (result.Length > 0 && result[result.Length - 1] == lastLetter)
                         {
                             result.Remove(result.Length - 1, 1);
                         }
@@ -103,7 +104,7 @@ namespace KeyPadPhoneMessaging
                 }
                 else
                 {
-                    result.Append(c);
+                    result.Append(letter);
                 }
             }
 
