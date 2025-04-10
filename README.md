@@ -9,20 +9,19 @@ The project replicates the experience of typing text messages on traditional mob
 
 # How it works
 Key Mapping: Each numeric key (0–9) corresponds to multiple characters. 
-For example:
 
+For example: (There are 3 characters A, B and C in the button of 2)
 => 2 → A, B, C
 => 3 → D, E, F
 => 7 → P, Q, R, S
 
-Character Selection: Press the same key multiple times to cycle through the associated characters. 
-For instance:
-
+#Press the same key multiple times to cycle through the associated characters. 
 Press 2 once for A.
 Press 2 twice quickly for B.
 Press 2 three times quickly for C.
 Output Message: The program collects the inputs and displays the typed message.
-For example: For 222 2 22, the output will be CAB.
+
+Eg. For 222 2 22, the output will be CAB.
 
 # Getting Started
 # Prerequisites
